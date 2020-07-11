@@ -1,0 +1,11 @@
+{
+  "name": "url-shortifier",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Taras Shevchuk",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
