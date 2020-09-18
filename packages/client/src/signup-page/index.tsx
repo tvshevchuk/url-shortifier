@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import "./index.css";
+import { useStore } from 'src/context';
 
 enum FieldName {
     email = 'email',
@@ -17,10 +18,13 @@ interface FormData {
 }
 
 export const SignUpPage = () => {
+    const { signUpViewStore } = useStore();
     const { register, handleSubmit } = useForm<FormData>();
 
-    const onSubmit = (data: FormData) => {
-        console.log(data);
+    const onSubmit = async (data: FormData) => {
+        if (data.password === data.confirmPassword) {
+            await signUpViewStore.signup(data.email, data.password);
+        }
     }
     
     return <form className="form" onSubmit={handleSubmit(onSubmit)}>

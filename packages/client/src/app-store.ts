@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { LoginViewStore, createLoginViewStore } from "./login-page/login-view-store";
+import { createSignUpViewStore, SignUpViewStore } from './signup-page/signup-view-store';
 
 export interface AppStore {
     loginViewStore: LoginViewStore;
+    signUpViewStore: SignUpViewStore;
 }
 
 export const createAppStore = (): AppStore => {
@@ -11,7 +13,10 @@ export const createAppStore = (): AppStore => {
     });
 
     const loginViewStore = createLoginViewStore(http);
+    const signUpViewStore = createSignUpViewStore(http);
+
     return {
-        loginViewStore
+        loginViewStore,
+        signUpViewStore
     }
 }

@@ -7,7 +7,7 @@ import { User } from './auth/user.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost/url-shortifier',
+      url: 'mongodb+srv://m001-student:nfhfc1993@cluster0.nd8hb.mongodb.net/url-shortifier',
       synchronize: true,
       useUnifiedTopology: true,
       entities: [User]
