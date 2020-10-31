@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { User } from './auth/user.entity';
+import { RecentItemsModule } from './recent-items/recent-items.module';
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { User } from './auth/user.entity';
       useUnifiedTopology: true,
       entities: [User]
     }),
-    AuthModule
+    AuthModule,
+    RecentItemsModule
   ]
 })
 export class AppModule {}
