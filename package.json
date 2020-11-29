@@ -1,7 +1,6 @@
 {
-  "name": "url-shortifier",
+  "name": "nestjs-auth",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Taras Shevchuk",
   "license": "MIT",
   "private": true,
