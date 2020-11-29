@@ -6,21 +6,18 @@ import { LoginStatus } from './login-page/login-view-store';
 interface AppRouteProps extends RouteProps {
     privateRoute?: boolean;
     publicRoute?: boolean;
-    children?: React.ReactNode;
 }
 
-export const AppRoute = ({ privateRoute, publicRoute, children, ...props }: AppRouteProps) => {
+export const AppRoute = ({ privateRoute, publicRoute, ...props }: AppRouteProps) => {
     const { loginViewStore } = useStore();
 
-    return <Route render={() => {
-        if (privateRoute && loginViewStore.loginStatus === LoginStatus.loggedOut) {
-            return <Redirect to="/login" />
-        }
-    
-        if (publicRoute && loginViewStore.loginStatus === LoginStatus.loggedIn) {
-            return <Redirect to="/" />
-        }
+    if (privateRoute && loginViewStore.loginStatus === LoginStatus.loggedOut) {
+        return <Redirect to="/login" />
+    }
 
-        return children;
-    }} {...props} />
+    if (publicRoute && loginViewStore.loginStatus === LoginStatus.loggedIn) {
+        return <Redirect to="/" />
+    }
+
+    return <Route {...props} />
 }

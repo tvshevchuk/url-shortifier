@@ -4,6 +4,7 @@
       "baseUrl": "./",
       "outDir": "dist/",
       "sourceMap": true,
+      "noImplicitAny": true,
       "module": "esnext",
       "target": "es5",
       "jsx": "react",
